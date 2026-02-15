@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Before u go</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,12 +19,12 @@
     }
 
     h1 {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     img {
       width: 180px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     .btn-container {
@@ -45,13 +45,14 @@
     #leaveBtn {
       background: #ff6b6b;
       left: 50%;
+      top: 20px;
       transform: translateX(-50%);
     }
 
     #stayBtn {
       background: #51cf66;
       left: 50%;
-      top: 70px;
+      top: 100px;
       transform: translateX(-50%);
     }
   </style>
@@ -69,19 +70,19 @@
   </div>
 
   <script>
-    // FORCE JS TO CONFIRM IT'S RUNNING
     console.log("JS LOADED");
 
-    let moveCount = 0;
+    let count = 0;
     const leaveBtn = document.getElementById("leaveBtn");
     const stayBtn = document.getElementById("stayBtn");
 
     leaveBtn.addEventListener("click", () => {
-      if (moveCount < 3) {
+      if (count < 3) {
         const x = Math.random() * 300 - 150;
-        const y = Math.random() * 150 - 75;
-        leaveBtn.style.transform = translate(${x}px, ${y}px);
-        moveCount++;
+        const y = Math.random() * 120;
+        leaveBtn.style.left = calc(50% + ${x}px);
+        leaveBtn.style.top = ${y}px;
+        count++;
       } else {
         window.location.href = "goodbye.html";
       }
