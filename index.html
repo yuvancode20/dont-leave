@@ -37,20 +37,17 @@
   let slideCount = 0;
   const btn = document.getElementById("leaveBtn");
 
-  btn.addEventListener("mouseenter", () => {
+  btn.addEventListener("click", (e) => {
     if (slideCount < 3) {
-      const distance = 120 + slideCount * 40;
-      btn.style.transform = translateX(${distance}px);
+      e.preventDefault(); // stop navigation
+      const x = (slideCount % 2 === 0 ? -1 : 1) * (120 + slideCount * 40);
+      btn.style.transform = translateX(${x}px);
       slideCount++;
-    }
-  });
-
-  btn.addEventListener("click", () => {
-    if (slideCount >= 3) {
+    } else {
+      // after 3 slides, allow leaving
       window.location.href = "terms.html";
     }
   });
 </script>
-
 </body>
 </html>
