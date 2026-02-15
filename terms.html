@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Terms & Conditions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    .box {
+      max-width: 400px;
+      margin: auto;
+      text-align: left;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Before you leave, agree to this 🥺</h2>
+
+<div class="box">
+  <label><input type="checkbox"> Get cute dinners with me</label><br>
+  <label><input type="checkbox"> Drink with me</label><br>
+  <label><input type="checkbox"> Hangout with me</label><br>
+  <label><input type="checkbox"> Dance classes with me</label><br>
+  <label><input type="checkbox"> Come to my place whenever</label><br>
+  <label><input type="checkbox"> Watch series with me</label><br>
+</div>
+
+<button onclick="checkAll()">Continue</button>
+
+<script>
+  function checkAll() {
+    const checks = document.querySelectorAll('input[type="checkbox"]');
+    for (let c of checks) {
+      if (!c.checked) {
+        alert("You must accept ALL terms 😌");
+        return;
+      }
+    }
+    window.location.href = "goodbye.html";
+  }
+</script>
+
+</body>
+</html>
