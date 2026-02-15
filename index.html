@@ -49,26 +49,26 @@
 </div>
 
 <script>
-  let slideCount = 0;
-  const leaveBtn = document.getElementById("leaveBtn");
-  const stayBtn = document.getElementById("stayBtn");
+  // Run JS only after the page fully loads
+  window.addEventListener("DOMContentLoaded", () => {
+    let count = 0;
+    const leaveBtn = document.getElementById("leaveBtn");
+    const stayBtn = document.getElementById("stayBtn");
 
-  // "I’m leaving" button logic
-  leaveBtn.addEventListener("click", () => {
-    if (slideCount < 3) {
-      const x = Math.random() * 300 - 150; // random -150px to +150px
-      const y = Math.random() * 100 - 50;  // random -50px to +50px
-      leaveBtn.style.transform = translate(${x}px, ${y}px);
-      slideCount++;
-    } else {
-      // after 3 slides → go to terms page
-      window.location.href = "terms.html";
-    }
-  });
+    leaveBtn.addEventListener("click", () => {
+      if (count < 3) {
+        const x = Math.random() * 300 - 150; // random -150 to +150
+        const y = Math.random() * 100 - 50;  // random -50 to +50
+        leaveBtn.style.transform = translate(${x}px, ${y}px);
+        count++;
+      } else {
+        window.location.href = "terms.html";
+      }
+    });
 
-  // "I’ll stay" button logic
-  stayBtn.addEventListener("click", () => {
-    alert("YAY 😭💖 You stayed!");
+    stayBtn.addEventListener("click", () => {
+      window.location.href = "stay.html";
+    });
   });
 </script>
 
