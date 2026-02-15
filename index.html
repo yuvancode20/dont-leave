@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Please don’t leave</title>
-
+  <meta charset="UTF-8">
+  <title>Before you go 🥺</title>
   <style>
     body {
       margin: 0;
@@ -12,84 +11,66 @@
       justify-content: center;
       align-items: center;
       font-family: Arial, sans-serif;
-      background: #f7f7f7;
+      background: #fff0f5;
     }
 
     .container {
       text-align: center;
-      position: relative;
     }
 
     img {
-      width: 180px;
+      width: 200px;
+      border-radius: 12px;
       margin-bottom: 20px;
     }
 
-    h2 {
+    h1 {
       margin-bottom: 20px;
-    }
-
-    .buttons {
-      position: relative;
-      height: 60px;
     }
 
     button {
-      padding: 10px 18px;
+      padding: 12px 18px;
       font-size: 16px;
       cursor: pointer;
+      margin: 10px;
       position: relative;
-    }
-
-    #leaveBtn {
-      position: absolute;
-      left: 120px;
-      transition: left 0.3s ease;
-    }
-
-    #stayBtn {
-      margin-right: 140px;
+      transition: transform 0.3s ease;
     }
   </style>
 </head>
-
 <body>
-  <div class="container">
-    <img
-      src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif"
-      alt="Sad cat"
-    />
 
-    <h2>Please don’t leave…</h2>
+<div class="container">
+  <img src="https://placekitten.com/300/300" alt="cute cat">
+  <h1>Before you go… 🥺</h1>
 
-    <div class="buttons">
-      <button id="stayBtn">I’ll stay</button>
-      <button id="leaveBtn">I’m leaving</button>
-    </div>
-  </div>
+  <button id="stayBtn">I’ll stay</button>
+  <button id="leaveBtn">I’m leaving</button>
+</div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      let slideCount = 0;
-      const leaveBtn = document.getElementById("leaveBtn");
-      const stayBtn = document.getElementById("stayBtn");
+<script>
+  let slideCount = 0;
+  const leaveBtn = document.getElementById("leaveBtn");
+  const stayBtn = document.getElementById("stayBtn");
 
-      leaveBtn.addEventListener("click", () => {
-        console.log("Leave clicked", slideCount);
+  // "I’m leaving" button logic
+  leaveBtn.addEventListener("click", () => {
+    if (slideCount < 3) {
+      const x = Math.random() * 300 - 150; // random -150px to +150px
+      const y = Math.random() * 100 - 50;  // random -50px to +50px
+      leaveBtn.style.transform = translate(${x}px, ${y}px);
+      slideCount++;
+    } else {
+      // after 3 slides → go to terms page
+      window.location.href = "terms.html";
+    }
+  });
 
-        if (slideCount < 3) {
-          const move = slideCount % 2 === 0 ? 40 : 200;
-          leaveBtn.style.left = move + "px";
-          slideCount++;
-        } else {
-          alert("Ok leave, all the best 😭");
-        }
-      });
+  // "I’ll stay" button logic
+  stayBtn.addEventListener("click", () => {
+    alert("YAY 😭💖 You stayed!");
+  });
+</script>
 
-      stayBtn.addEventListener("click", () => {
-        alert("YAY 😭💖");
-      });
-    });
-  </script>
 </body>
 </html>
