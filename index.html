@@ -9,12 +9,12 @@
     body {
       height: 100vh;
       margin: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       font-family: Arial, sans-serif;
       background: #fff6f6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
     }
 
@@ -27,33 +27,25 @@
       margin-bottom: 20px;
     }
 
-    .btn-container {
-      position: relative;
-      width: 100%;
-      height: 200px;
-    }
-
-    button {
+    #leaveBtn, #stayBtn {
       padding: 14px 24px;
       font-size: 16px;
-      cursor: pointer;
       border: none;
       border-radius: 8px;
+      cursor: pointer;
       position: absolute;
     }
 
     #leaveBtn {
       background: #ff6b6b;
-      left: 50%;
-      top: 20px;
-      transform: translateX(-50%);
+      top: 60%;
+      left: 40%;
     }
 
     #stayBtn {
       background: #51cf66;
-      left: 50%;
-      top: 100px;
-      transform: translateX(-50%);
+      top: 70%;
+      left: 40%;
     }
   </style>
 </head>
@@ -64,33 +56,27 @@
 
   <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Cute cat">
 
-  <div class="btn-container">
-    <button id="leaveBtn">I'm leaving</button>
-    <button id="stayBtn">I'll stay ❤️</button>
-  </div>
+  <button id="leaveBtn">I'm leaving</button>
+  <button id="stayBtn">I'll stay ❤️</button>
 
   <script>
-    console.log("JS LOADED");
-
     let count = 0;
     const leaveBtn = document.getElementById("leaveBtn");
     const stayBtn = document.getElementById("stayBtn");
 
-    leaveBtn.addEventListener("click", () => {
+    leaveBtn.onclick = function () {
       if (count < 3) {
-        const x = Math.random() * 300 - 150;
-        const y = Math.random() * 120;
-        leaveBtn.style.left = calc(50% + ${x}px);
-        leaveBtn.style.top = ${y}px;
+        leaveBtn.style.top = Math.random() * 80 + "%";
+        leaveBtn.style.left = Math.random() * 80 + "%";
         count++;
       } else {
         window.location.href = "goodbye.html";
       }
-    });
+    };
 
-    stayBtn.addEventListener("click", () => {
+    stayBtn.onclick = function () {
       window.location.href = "terms.html";
-    });
+    };
   </script>
 
 </body>
