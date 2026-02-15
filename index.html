@@ -34,20 +34,23 @@
   <button id="leaveBtn">I’m leaving</button>
 
   <script>
-    let moved = false;
-    const btn = document.getElementById("leaveBtn");
+  let slideCount = 0;
+  const btn = document.getElementById("leaveBtn");
 
-    btn.addEventListener("mouseenter", () => {
-      if (!moved) {
-        btn.style.transform = "translateX(120px)";
-        moved = true;
-      }
-    });
+  btn.addEventListener("mouseenter", () => {
+    if (slideCount < 3) {
+      const distance = 120 + slideCount * 40;
+      btn.style.transform = translateX(${distance}px);
+      slideCount++;
+    }
+  });
 
-    btn.addEventListener("click", () => {
+  btn.addEventListener("click", () => {
+    if (slideCount >= 3) {
       window.location.href = "terms.html";
-    });
-  </script>
+    }
+  });
+</script>
 
 </body>
 </html>
