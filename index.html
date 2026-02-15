@@ -1,76 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Before you go 🥺</title>
+  <meta charset="UTF-8" />
+  <title>Before u go</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
-      margin: 0;
       height: 100vh;
+      margin: 0;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       font-family: Arial, sans-serif;
-      background: #fff0f5;
-    }
-
-    .container {
-      text-align: center;
-    }
-
-    img {
-      width: 200px;
-      border-radius: 12px;
-      margin-bottom: 20px;
+      background: #fff6f6;
+      overflow: hidden;
     }
 
     h1 {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    img {
+      width: 180px;
+      margin-bottom: 30px;
+    }
+
+    .btn-container {
+      position: relative;
+      width: 100%;
+      height: 200px;
     }
 
     button {
-      padding: 12px 18px;
+      padding: 14px 24px;
       font-size: 16px;
       cursor: pointer;
-      margin: 10px;
-      position: relative;
-      transition: transform 0.3s ease;
+      border: none;
+      border-radius: 8px;
+      position: absolute;
+    }
+
+    #leaveBtn {
+      background: #ff6b6b;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #stayBtn {
+      background: #51cf66;
+      left: 50%;
+      top: 70px;
+      transform: translateX(-50%);
     }
   </style>
 </head>
+
 <body>
 
-<div class="container">
-  <img src="https://placekitten.com/300/300" alt="cute cat">
-  <h1>Before you go… 🥺</h1>
+  <h1>Before u go 🥺</h1>
 
-  <button id="stayBtn">I’ll stay</button>
-  <button id="leaveBtn">I’m leaving</button>
-</div>
+  <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Cute cat">
 
-<script>
-  // Run JS only after the page fully loads
-  window.addEventListener("DOMContentLoaded", () => {
-    let count = 0;
+  <div class="btn-container">
+    <button id="leaveBtn">I'm leaving</button>
+    <button id="stayBtn">I'll stay ❤️</button>
+  </div>
+
+  <script>
+    // FORCE JS TO CONFIRM IT'S RUNNING
+    console.log("JS LOADED");
+
+    let moveCount = 0;
     const leaveBtn = document.getElementById("leaveBtn");
     const stayBtn = document.getElementById("stayBtn");
 
     leaveBtn.addEventListener("click", () => {
-      if (count < 3) {
-        const x = Math.random() * 300 - 150; // random -150 to +150
-        const y = Math.random() * 100 - 50;  // random -50 to +50
+      if (moveCount < 3) {
+        const x = Math.random() * 300 - 150;
+        const y = Math.random() * 150 - 75;
         leaveBtn.style.transform = translate(${x}px, ${y}px);
-        count++;
+        moveCount++;
       } else {
-        window.location.href = "terms.html";
+        window.location.href = "goodbye.html";
       }
     });
 
     stayBtn.addEventListener("click", () => {
-      window.location.href = "stay.html";
+      window.location.href = "terms.html";
     });
-  });
-</script>
+  </script>
 
 </body>
 </html>
