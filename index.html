@@ -26,30 +26,27 @@
 <body>
 
   <h1>Before you go 🥺</h1>
-  <img src="https://placekitten.com/300/300" />
+  <img src="https://placekitten.com/301/301" />
   <p>Please don’t leave…</p>
 
   <button onclick="alert('YAY 😭💖')">I’ll stay</button>
 
-  <button id="leaveBtn" onclick="goNext()">I’m leaving</button>
+  <button id="leaveBtn">I’m leaving</button>
 
   <script>
-    let escapeCount = 0;
-
+    let moved = false;
     const btn = document.getElementById("leaveBtn");
 
-    btn.addEventListener("mouseover", () => {
-      if (escapeCount < 2) {
-        const x = Math.random() * 200 - 100;
-        const y = Math.random() * 200 - 100;
-        btn.style.transform = translate(${x}px, ${y}px);
-        escapeCount++;
+    btn.addEventListener("mouseenter", () => {
+      if (!moved) {
+        btn.style.transform = "translateX(120px)";
+        moved = true;
       }
     });
 
-    function goNext() {
+    btn.addEventListener("click", () => {
       window.location.href = "terms.html";
-    }
+    });
   </script>
 
 </body>
