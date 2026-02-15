@@ -1,104 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Don’t Leave 😭</title>
+  <title>Before you go</title>
   <style>
     body {
-      text-align: center;
       font-family: Arial, sans-serif;
       background: #fff0f5;
-      margin-top: 60px;
-    }
-    button {
-      font-size: 18px;
-      padding: 12px 24px;
-      margin: 20px;
-      cursor: pointer;
-    }
-    #no {
-      position: absolute;
+      text-align: center;
+      padding: 40px;
     }
     img {
-      width: 230px;
-      border-radius: 20px;
-      margin: 15px 0;
+      width: 220px;
+      border-radius: 12px;
+      margin: 20px 0;
     }
-    .terms {
-      text-align: left;
-      display: inline-block;
-      margin-top: 20px;
-      font-size: 18px;
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      position: relative;
     }
   </style>
 </head>
+<body>
 
-<body id="content">
+  <h1>Before you go 🥺</h1>
+  <img src="https://placekitten.com/300/300" />
+  <p>Please don’t leave…</p>
 
-  <h1>You’re not actually leaving… right? 😭</h1>
+  <button onclick="alert('YAY 😭💖')">I’ll stay</button>
 
-  <img src="https://cataas.com/cat/says/Don't%20go%20😭"
-       alt="cute cat">
+  <button id="leaveBtn" onclick="goNext()">I’m leaving</button>
 
-  <br>
+  <script>
+    let escapeCount = 0;
 
-  <button onclick="stay()">Okay I’ll stay 🥹</button>
-  <button id="no" onmouseover="moveButton()" onclick="showTerms()">I’m leaving 🙃</button>
+    const btn = document.getElementById("leaveBtn");
 
-<script>
-  function moveButton() {
-    const x = Math.random() * (window.innerWidth - 150);
-    const y = Math.random() * (window.innerHeight - 150);
-    document.getElementById("no").style.left = x + "px";
-    document.getElementById("no").style.top = y + "px";
-  }
+    btn.addEventListener("mouseover", () => {
+      if (escapeCount < 2) {
+        const x = Math.random() * 200 - 100;
+        const y = Math.random() * 200 - 100;
+        btn.style.transform = translate(${x}px, ${y}px);
+        escapeCount++;
+      }
+    });
 
-  function stay() {
-    document.getElementById("content").innerHTML = `
-      <h1>Okay fine… go be amazing 💔</h1>
-      <img src="https://cataas.com/cat/says/Miss%20you%20already%20💔">
-      <p>But don’t forget me. Ever. 🙃❤️</p>
-    `;
-  }
-
-  function showTerms() {
-    document.getElementById("content").innerHTML = `
-      <h1>Terms & Conditions 📜</h1>
-
-      <img src="https://cataas.com/cat/says/Accept%20ALL%20terms%20😼">
-
-      <p>If you’re leaving, you must agree to ALL of these:</p>
-
-      <div class="terms">
-        <input type="checkbox"> Get cute dinners with me<br><br>
-        <input type="checkbox"> Drink with me<br><br>
-        <input type="checkbox"> Hangout with me<br><br>
-        <input type="checkbox"> Dance classes with me<br><br>
-        <input type="checkbox"> Come to my place whenever<br><br>
-        <input type="checkbox"> Watch series with me<br><br>
-      </div>
-
-      <br>
-      <button onclick="checkTerms()">Continue</button>
-      <p id="error" style="color:red;"></p>
-    `;
-  }
-
-  function checkTerms() {
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    const allChecked = Array.from(checkboxes).every(cb => cb.checked);
-
-    if (!allChecked) {
-      document.getElementById("error").innerText =
-        "❌ Excuse me??? Accept ALL terms.";
-    } else {
-      document.getElementById("content").innerHTML = `
-        <h1>Ok leave… all the best 😭</h1>
-        <img src="https://cataas.com/cat/says/Don't%20forget%20me%20🥺">
-        <p>But you’re still stuck with me for all of the above 🙃❤️</p>
-      `;
+    function goNext() {
+      window.location.href = "terms.html";
     }
-  }
-</script>
+  </script>
 
 </body>
 </html>
