@@ -1,53 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Before you go</title>
+  <meta charset="UTF-8" />
+  <title>Please don’t leave</title>
+
   <style>
     body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-family: Arial, sans-serif;
-      background: #fff0f5;
+      background: #f7f7f7;
+    }
+
+    .container {
       text-align: center;
-      padding: 40px;
     }
+
     img {
-      width: 220px;
-      border-radius: 12px;
-      margin: 20px 0;
+      width: 180px;
+      margin-bottom: 20px;
     }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
     button {
-      padding: 12px 20px;
-      font-size: 16px;
+      padding: 10px 18px;
       margin: 10px;
+      font-size: 16px;
       cursor: pointer;
-      position: relative;
+    }
+
+    #leaveBtn {
+      transition: transform 0.3s ease;
     }
   </style>
 </head>
+
 <body>
+  <div class="container">
+    <img
+      src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif"
+      alt="Sad cat"
+    />
 
-  <h1>Before you go 🥺</h1>
-  <img src="https://placekitten.com/301/301" />
-  <p>Please don’t leave…</p>
+    <h2>Please don’t leave…</h2>
 
-  <button onclick="alert('YAY 😭💖')">I’ll stay</button>
-
-  <button id="leaveBtn">I’m leaving</button>
+    <button id="stayBtn">I’ll stay</button>
+    <button id="leaveBtn">I’m leaving</button>
+  </div>
 
   <script>
-  let slideCount = 0;
-  const btn = document.getElementById("leaveBtn");
+    let slideCount = 0;
+    const leaveBtn = document.getElementById("leaveBtn");
+    const stayBtn = document.getElementById("stayBtn");
 
-  btn.addEventListener("click", (e) => {
-    if (slideCount < 3) {
-      e.preventDefault(); // stop navigation
-      const x = (slideCount % 2 === 0 ? -1 : 1) * (120 + slideCount * 40);
-      btn.style.transform = translateX(${x}px);
-      slideCount++;
-    } else {
-      // after 3 slides, allow leaving
-      window.location.href = "terms.html";
-    }
-  });
-</script>
+    leaveBtn.addEventListener("click", () => {
+      if (slideCount < 3) {
+        const distance = slideCount % 2 === 0 ? -140 : 140;
+        leaveBtn.style.transform = translateX(${distance}px);
+        slideCount++;
+      } else {
+        window.location.href = "https://google.com";
+      }
+    });
+
+    stayBtn.addEventListener("click", () => {
+      alert("YAY 😭💖");
+    });
+  </script>
 </body>
 </html>
