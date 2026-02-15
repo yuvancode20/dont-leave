@@ -17,6 +17,7 @@
 
     .container {
       text-align: center;
+      position: relative;
     }
 
     img {
@@ -28,15 +29,26 @@
       margin-bottom: 20px;
     }
 
+    .buttons {
+      position: relative;
+      height: 60px;
+    }
+
     button {
       padding: 10px 18px;
-      margin: 10px;
       font-size: 16px;
       cursor: pointer;
+      position: relative;
     }
 
     #leaveBtn {
-      transition: transform 0.3s ease;
+      position: absolute;
+      left: 120px;
+      transition: left 0.3s ease;
+    }
+
+    #stayBtn {
+      margin-right: 140px;
     }
   </style>
 </head>
@@ -50,27 +62,33 @@
 
     <h2>Please don’t leave…</h2>
 
-    <button id="stayBtn">I’ll stay</button>
-    <button id="leaveBtn">I’m leaving</button>
+    <div class="buttons">
+      <button id="stayBtn">I’ll stay</button>
+      <button id="leaveBtn">I’m leaving</button>
+    </div>
   </div>
 
   <script>
-    let slideCount = 0;
-    const leaveBtn = document.getElementById("leaveBtn");
-    const stayBtn = document.getElementById("stayBtn");
+    document.addEventListener("DOMContentLoaded", () => {
+      let slideCount = 0;
+      const leaveBtn = document.getElementById("leaveBtn");
+      const stayBtn = document.getElementById("stayBtn");
 
-    leaveBtn.addEventListener("click", () => {
-      if (slideCount < 3) {
-        const distance = slideCount % 2 === 0 ? -140 : 140;
-        leaveBtn.style.transform = translateX(${distance}px);
-        slideCount++;
-      } else {
-        window.location.href = "https://google.com";
-      }
-    });
+      leaveBtn.addEventListener("click", () => {
+        console.log("Leave clicked", slideCount);
 
-    stayBtn.addEventListener("click", () => {
-      alert("YAY 😭💖");
+        if (slideCount < 3) {
+          const move = slideCount % 2 === 0 ? 40 : 200;
+          leaveBtn.style.left = move + "px";
+          slideCount++;
+        } else {
+          alert("Ok leave, all the best 😭");
+        }
+      });
+
+      stayBtn.addEventListener("click", () => {
+        alert("YAY 😭💖");
+      });
     });
   </script>
 </body>
