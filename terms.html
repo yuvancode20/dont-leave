@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Before You Leave</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff5f8;
+      padding: 30px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 15px 0;
+      background: white;
+      padding: 10px;
+      border-radius: 14px;
+    }
+
+    .item img {
+      width: 60px;
+      border-radius: 10px;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 14px 30px;
+      font-size: 18px;
+      border-radius: 30px;
+      border: none;
+      background: #ff6fa5;
+      color: white;
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    button.active {
+      opacity: 1;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Before you leave, agree to this 🥺</h2>
+
+  <div class="item">
+    <input type="checkbox">
+    <img src="https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif">
+    <span>You shall get cute dinners with me</span>
+  </div>
+
+  <div class="item">
+    <input type="checkbox">
+    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+    <span>You shall get drunk with me</span>
+  </div>
+
+  <div class="item">
+    <input type="checkbox">
+    <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
+    <span>You will hangout with me very frequently</span>
+  </div>
+
+  <div class="item">
+    <input type="checkbox">
+    <img src="https://media.giphy.com/media/3ohs7KViF6rA4aan5u/giphy.gif">
+    <span>You will go to dance classes with me</span>
+  </div>
+
+  <div class="item">
+    <input type="checkbox">
+    <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif">
+    <span>You will teach me paddle</span>
+  </div>
+
+  <div class="item">
+    <input type="checkbox">
+    <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+    <span>You will visit my house & sleepover</span>
+  </div>
+
+  <div class="item">
+    <input type="checkbox">
+    <img src="https://media.giphy.com/media/13borq7Zo2kulO/giphy.gif">
+    <span>We will watch series together</span>
+  </div>
+
+  <button id="agreeBtn">Agree & Continue 🥺</button>
+
+  <script>
+    const checkboxes = document.querySelectorAll("input[type='checkbox']");
+    const btn = document.getElementById("agreeBtn");
+
+    checkboxes.forEach(cb => {
+      cb.addEventListener("change", () => {
+        const allChecked = [...checkboxes].every(c => c.checked);
+        if (allChecked) {
+          btn.classList.add("active");
+          btn.disabled = false;
+        }
+      });
+    });
+
+    btn.addEventListener("click", () => {
+      if (btn.classList.contains("active")) {
+        window.location.href = "final.html";
+      }
+    });
+  </script>
+
+</body>
+</html>
