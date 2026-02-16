@@ -2,82 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Before u go</title>
+  <title>Dear Amru</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
-      height: 100vh;
-      margin: 0;
       font-family: Arial, sans-serif;
-      background: #fff6f6;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    h1 {
-      margin-bottom: 20px;
+      background: #ffe6f0;
+      text-align: center;
+      padding: 40px;
     }
 
     img {
-      width: 180px;
-      margin-bottom: 20px;
+      max-width: 280px;
+      border-radius: 20px;
+      margin: 20px 0;
     }
 
-    #leaveBtn, #stayBtn {
-      padding: 14px 24px;
-      font-size: 16px;
+    button {
+      padding: 14px 30px;
+      font-size: 18px;
+      border-radius: 30px;
       border: none;
-      border-radius: 8px;
+      background: #ff6fa5;
+      color: white;
       cursor: pointer;
-      position: absolute;
-    }
-
-    #leaveBtn {
-      background: #ff6b6b;
-      top: 60%;
-      left: 40%;
-    }
-
-    #stayBtn {
-      background: #51cf66;
-      top: 70%;
-      left: 40%;
+      position: relative;
     }
   </style>
 </head>
 
 <body>
+  <h1>Dear Amru,<br>Are you really leaving? 🥺</h1>
 
-  <h1>Before u go 🥺</h1>
+  <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif">
 
-  <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Cute cat">
+  <br><br>
 
-  <button id="leaveBtn">I'm leaving</button>
-  <button id="stayBtn">I'll stay ❤️</button>
+  <button id="yesBtn" onclick="move()">Yes 😞</button>
 
   <script>
     let count = 0;
-    const leaveBtn = document.getElementById("leaveBtn");
-    const stayBtn = document.getElementById("stayBtn");
 
-    leaveBtn.onclick = function () {
+    function move() {
+      const btn = document.getElementById("yesBtn");
+
       if (count < 3) {
-        leaveBtn.style.top = Math.random() * 80 + "%";
-        leaveBtn.style.left = Math.random() * 80 + "%";
+        const x = Math.random() * 200 - 100;
+        const y = Math.random() * 200 - 100;
+        btn.style.transform = translate(${x}px, ${y}px);
         count++;
       } else {
-        window.location.href = "goodbye.html";
+        window.location.href = "terms.html";
       }
-    };
-
-    stayBtn.onclick = function () {
-      window.location.href = "terms.html";
-    };
+    }
   </script>
-
 </body>
 </html>
