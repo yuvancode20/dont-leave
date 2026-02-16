@@ -8,75 +8,39 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #ffe6f0;
+      background: #fff;
       text-align: center;
-      padding: 40px;
-    }
-
-    img {
-      max-width: 280px;
-      border-radius: 20px;
-      margin: 20px 0;
-    }
-
-    button {
-      padding: 14px 30px;
-      font-size: 18px;
-      border-radius: 30px;
-      border: none;
-      background: #ff6fa5;
-      color: white;
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.2s ease;
-    }
-  </style>
-</head>
-
-<body>
-  <h1>Dear Amru,<br>Are you really leaving? 🥺</h1>
-
-  <img src="https://media.giphy.com/media/…
-[11:18 pm, 16/2/2026] Yuvanthika M: <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Dear Amru</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #ffe6f0;
-      text-align: center;
-      padding: 40px;
+      height: 100vh;
+      margin: 0;
+      padding-top: 60px;
       overflow: hidden;
     }
 
     img {
-      max-width: 260px;
+      width: 260px;
       border-radius: 20px;
-      margin: 20px 0;
+      margin: 30px 0;
     }
 
     button {
-      padding: 14px 32px;
+      padding: 14px 34px;
       font-size: 18px;
       border-radius: 30px;
       border: none;
       background: #ff6fa5;
       color: white;
       cursor: pointer;
-      position: absolute;
+      position: fixed;   /* 🔥 IMPORTANT */
       left: 50%;
       top: 65%;
       transform: translate(-50%, -50%);
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
     }
   </style>
 </head>
 
 <body>
+
   <h1>Dear Amru,<br>Are you really leaving? 🥺</h1>
 
   <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif">
@@ -84,19 +48,21 @@
   <button id="yesBtn">Yes 😞</button>
 
   <script>
-    let count = 0;
+    let moves = 0;
     const btn = document.getElementById("yesBtn");
 
     btn.addEventListener("click", () => {
-      if (count < 3) {
-        const x = Math.random() * 300 - 150;
-        const y = Math.random() * 300 - 150;
-        btn.style.transform = translate(${x}px, ${y}px);
-        count++;
+      if (moves < 3) {
+        const x = Math.random() * (window.innerWidth - 120);
+        const y = Math.random() * (window.innerHeight - 60);
+        btn.style.left = x + "px";
+        btn.style.top = y + "px";
+        moves++;
       } else {
         window.location.href = "terms.html";
       }
     });
   </script>
+
 </body>
 </html>
