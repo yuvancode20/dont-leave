@@ -1,51 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Terms & Conditions</title>
+  <meta charset="UTF-8">
+  <title>Before You Leave</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       font-family: Arial, sans-serif;
+      background: #fff0f5;
       text-align: center;
-      padding: 40px;
+      padding: 20px;
     }
-    .box {
-      max-width: 400px;
-      margin: auto;
-      text-align: left;
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 15px;
+      margin: 15px auto;
+      max-width: 320px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
+
+    img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
     button {
       margin-top: 20px;
-      padding: 10px 20px;
+      padding: 12px 30px;
+      font-size: 16px;
+      border-radius: 30px;
+      border: none;
+      background: #ff6fa5;
+      color: white;
+      cursor: pointer;
     }
   </style>
 </head>
+
 <body>
+  <h2>Before you leave, agree to this 🥺</h2>
 
-<h2>Before you leave, agree to this 🥺</h2>
+  <!-- Repeat this block -->
+  <div class="card">
+    <img src="https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif">
+    <label><input type="checkbox" class="cb"> Cute dinners with me</label>
+  </div>
 
-<div class="box">
-  <label><input type="checkbox"> Get cute dinners with me</label><br>
-  <label><input type="checkbox"> Drink with me</label><br>
-  <label><input type="checkbox"> Hangout with me</label><br>
-  <label><input type="checkbox"> Dance classes with me</label><br>
-  <label><input type="checkbox"> Come to my place whenever</label><br>
-  <label><input type="checkbox"> Watch series with me</label><br>
-</div>
+  <div class="card">
+    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+    <label><input type="checkbox" class="cb"> Get drunk with me</label>
+  </div>
 
-<button onclick="checkAll()">Continue</button>
+  <div class="card">
+    <img src="https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif">
+    <label><input type="checkbox" class="cb"> Hangout very frequently</label>
+  </div>
 
-<script>
-  function checkAll() {
-    const checks = document.querySelectorAll('input[type="checkbox"]');
-    for (let c of checks) {
-      if (!c.checked) {
-        alert("You must accept ALL terms 😌");
-        return;
+  <button onclick="next()">Continue 😞</button>
+
+  <script>
+    function next() {
+      const boxes = document.querySelectorAll(".cb");
+      for (let box of boxes) {
+        if (!box.checked) {
+          alert("Please agree to all 🥺");
+          return;
+        }
       }
+      window.location.href = "goodbye.html";
     }
-    window.location.href = "goodbye.html";
-  }
-</script>
-
+  </script>
 </body>
 </html>
