@@ -10,113 +10,115 @@
       font-family: Arial, sans-serif;
       background: #fff5f8;
       padding: 30px;
-      text-align: center;
     }
 
-    h2 {
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .term {
+      display: flex;
+      align-items: center;
+      gap: 15px;
       margin-bottom: 20px;
     }
 
-    .item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 15px 0;
-      background: white;
-      padding: 10px;
-      border-radius: 14px;
+    .term img {
+      width: 70px;
+      height: 70px;
+      border-radius: 15px;
+      object-fit: cover;
     }
 
-    .item img {
-      width: 60px;
-      border-radius: 10px;
+    .term label {
+      font-size: 16px;
+      cursor: pointer;
     }
 
     button {
-      margin-top: 30px;
+      display: block;
+      margin: 40px auto 0;
       padding: 14px 30px;
       font-size: 18px;
       border-radius: 30px;
       border: none;
       background: #ff6fa5;
       color: white;
-      opacity: 0.4;
       cursor: not-allowed;
+      opacity: 0.5;
     }
 
-    button.active {
-      opacity: 1;
+    button.enabled {
       cursor: pointer;
+      opacity: 1;
     }
   </style>
 </head>
 
 <body>
 
-  <h2>Before you leave, agree to this 🥺</h2>
+  <h1>Before you leave, agree to this 🥺</h1>
 
-  <div class="item">
-    <input type="checkbox">
-    <img src="https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif">
-    <span>You shall get cute dinners with me</span>
+  <div class="term">
+    <input type="checkbox" class="check">
+    <img src="images/cutedinner.jpeg">
+    <label>You shall get cute dinners with me</label>
   </div>
 
-  <div class="item">
-    <input type="checkbox">
-    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
-    <span>You shall get drunk with me</span>
+  <div class="term">
+    <input type="checkbox" class="check">
+    <img src="images/drunk.jpeg">
+    <label>You shall get drunk with me</label>
   </div>
 
-  <div class="item">
-    <input type="checkbox">
-    <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
-    <span>You will hangout with me very frequently</span>
+  <div class="term">
+    <input type="checkbox" class="check">
+    <img src="images/hangout.jpeg">
+    <label>You will hangout with me very frequently</label>
   </div>
 
-  <div class="item">
-    <input type="checkbox">
-    <img src="https://media.giphy.com/media/3ohs7KViF6rA4aan5u/giphy.gif">
-    <span>You will go to dance classes with me</span>
+  <div class="term">
+    <input type="checkbox" class="check">
+    <img src="images/dancing.jpeg">
+    <label>You will go to dance classes with me</label>
   </div>
 
-  <div class="item">
-    <input type="checkbox">
-    <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif">
-    <span>You will teach me paddle</span>
+  <div class="term">
+    <input type="checkbox" class="check">
+    <img src="images/paddle.jpeg">
+    <label>You will teach me paddle</label>
   </div>
 
-  <div class="item">
-    <input type="checkbox">
-    <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
-    <span>You will visit my house & sleepover</span>
+  <div class="term">
+    <input type="checkbox" class="check">
+    <img src="images/sleepover.jpeg">
+    <label>You will visit my house & sleepover</label>
   </div>
 
-  <div class="item">
-    <input type="checkbox">
-    <img src="https://media.giphy.com/media/13borq7Zo2kulO/giphy.gif">
-    <span>We will watch series together</span>
+  <div class="term">
+    <input type="checkbox" class="check">
+    <img src="images/movies.jpeg">
+    <label>We will watch series together</label>
   </div>
 
-  <button id="agreeBtn">Agree & Continue 🥺</button>
+  <button id="continueBtn">Continue 😞</button>
 
   <script>
-    const checkboxes = document.querySelectorAll("input[type='checkbox']");
-    const btn = document.getElementById("agreeBtn");
+    const checks = document.querySelectorAll(".check");
+    const btn = document.getElementById("continueBtn");
 
-    checkboxes.forEach(cb => {
-      cb.addEventListener("change", () => {
-        const allChecked = [...checkboxes].every(c => c.checked);
+    checks.forEach(check => {
+      check.addEventListener("change", () => {
+        const allChecked = [...checks].every(c => c.checked);
         if (allChecked) {
-          btn.classList.add("active");
+          btn.classList.add("enabled");
           btn.disabled = false;
+          btn.onclick = () => {
+            window.location.href = "buffer.html";
+          };
         }
       });
-    });
-
-    btn.addEventListener("click", () => {
-      if (btn.classList.contains("active")) {
-        window.location.href = "final.html";
-      }
     });
   </script>
 
